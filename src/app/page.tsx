@@ -19,8 +19,15 @@ import {
   Button,
   Center,
   Stack,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
 } from '@chakra-ui/react'
 import Lottie from 'lottie-react'
+import 'chart.js/auto'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import bg from '../../public/json/bg.json'
 
 import CustomModal from './components/modal'
@@ -32,6 +39,7 @@ import {
 } from './libs/vaults'
 import { Container } from './components/container'
 import { ArrowUpIcon, CheckIcon, XIcon } from './icons'
+import { Bar, Chart } from 'react-chartjs-2'
 
 export default function Home() {
   return (
@@ -39,6 +47,7 @@ export default function Home() {
       <Hero />
       <Vaults />
       <Advantages />
+      <Comparison />
       {/* <Features /> */}
       <CallToActions />
     </Box>
@@ -79,8 +88,8 @@ function Vaults() {
         spacing={50}
         direction={['column', 'column', 'column', 'row']}
       >
-        <VaultCard code="FAL_USDC" onClick={onOpen} />
         <VaultCard code="FAS_USDC" onClick={onOpen} />
+        <VaultCard code="FAL_USDC" onClick={onOpen} />
       </Stack>
 
       <CustomModal isOpen={isOpen} onClose={onClose}></CustomModal>
@@ -101,6 +110,7 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
       variant={vault.cardVariant}
       onClick={onClick}
       cursor={'pointer'}
+      flex={1}
     >
       <CardHeader display={'flex'} justifyContent={'space-between'}>
         <Heading as="h2" noOfLines={1} wordBreak={'break-all'} gap={1}>
@@ -166,7 +176,7 @@ function Advantages() {
       width={'full'}
       layerStyle={'lightGradient'}
       paddingTop={{ base: 20, lg: '20vh' }}
-      paddingBottom={{ base: 20, lg: '25vh' }}
+      paddingBottom={20}
     >
       <Container>
         <VStack spacing={10} alignItems={'stretch'}>
@@ -200,6 +210,178 @@ function Advantage({
         <Text>{description}</Text>
       </VStack>
     </HStack>
+  )
+}
+
+function Comparison() {
+  let delayed = false
+  return (
+    <Box
+      width={'full'}
+      layerStyle={'grayGradient'}
+      paddingTop={20}
+      paddingBottom={{ base: 20, lg: '25vh' }}
+    >
+      <Container>
+        <Tabs variant="rounded" isLazy={true}>
+          <VStack alignItems={'stretch'} spacing={10}>
+            <Stack
+              width={'full'}
+              alignItems={{ base: 'start', lg: 'center' }}
+              justifyContent={{ base: 'initial', lg: 'space-between' }}
+              spacing={{ base: 5, lg: 0 }}
+              direction={{ base: 'column', lg: 'row' }}
+            >
+              <VStack alignItems={'stretch'}>
+                <Heading as="h3">What’s better?</Heading>
+                <Text>On-chain credit solutions tailored to your needs.</Text>
+              </VStack>
+              <TabList>
+                <Tab _selected={{ background: 'greenGradient' }}>FAS_USDC</Tab>
+                <Tab _selected={{ background: 'blueGradient' }}>FAL_USDC</Tab>
+              </TabList>
+            </Stack>
+            <TabPanels>
+              <TabPanel>
+                <Bar
+                  height={'400px'}
+                  width={'full'}
+                  plugins={[ChartDataLabels]}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        stacked: true,
+                        ticks: {
+                          font: {
+                            size: 20,
+                            weight: 500,
+                          },
+                        },
+                      },
+                      y: {
+                        stacked: false,
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                    },
+                    animation: {
+                      delay: 1,
+                    },
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                      datalabels: {
+                        color: 'white',
+                        font: {
+                          size: 30,
+                          weight: 'bold',
+                        },
+                        formatter: (value) => `${value}%`,
+                      },
+                    },
+                  }}
+                  data={{
+                    labels: ['FAS_USDC', 'Ethena', 'Superstate'],
+                    datasets: [
+                      {
+                        label: 'APY',
+                        data: [13, 11, 2.6],
+                        backgroundColor: [
+                          'rgba(12,143,112,.8)',
+                          'rgba(150,150,150,.8)',
+                          'rgba(150,150,150,.8)',
+                        ],
+                        borderColor: [
+                          'rgba(12,143,112,1)',
+                          'rgba(150,150,150,1)',
+                          'rgba(150,150,150,1)',
+                        ],
+                        borderRadius: 10,
+                        borderWidth: 3,
+                        maxBarThickness: 200,
+                      },
+                    ],
+                  }}
+                ></Bar>
+              </TabPanel>
+              <TabPanel>
+                <Bar
+                  height={'400px'}
+                  width={'full'}
+                  plugins={[ChartDataLabels]}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        stacked: true,
+                        ticks: {
+                          font: {
+                            size: 20,
+                            weight: 500,
+                          },
+                        },
+                      },
+                      y: {
+                        stacked: true,
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                    },
+                    animation: {
+                      onComplete: () => {
+                        delayed = true
+                      },
+                      delay: 1,
+                    },
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                      datalabels: {
+                        color: 'white',
+                        font: {
+                          size: 30,
+                          weight: 'bold',
+                        },
+                        formatter: (value) => `${value}%`,
+                      },
+                    },
+                  }}
+                  data={{
+                    labels: ['FAL_USDC', 'Clearpool', 'Maple'],
+                    datasets: [
+                      {
+                        label: 'APY',
+                        data: [15, 10, 9.5],
+                        backgroundColor: [
+                          'rgba(7,61,124,.8)',
+                          'rgba(150,150,150,.8)',
+                          'rgba(150,150,150,.8)',
+                        ],
+                        borderColor: [
+                          'rgba(7,61,124,1)',
+                          'rgba(150,150,150,1)',
+                          'rgba(150,150,150,1)',
+                        ],
+                        borderRadius: 10,
+                        borderWidth: 3,
+                        maxBarThickness: 200,
+                      },
+                    ],
+                  }}
+                ></Bar>
+              </TabPanel>
+            </TabPanels>
+          </VStack>
+        </Tabs>
+      </Container>
+    </Box>
   )
 }
 

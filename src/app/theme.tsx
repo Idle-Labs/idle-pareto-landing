@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react'
+import { background, extendTheme } from '@chakra-ui/react'
 import { dmSans, poppins } from './fonts'
 import bgPartners from '../../public/bg/partners.png'
 
@@ -199,6 +199,23 @@ export const theme = extendTheme({
             _focus: {
               bg: 'red',
             },
+          },
+        },
+      },
+    },
+    Tabs: {
+      variants: {
+        rounded: {
+          tablist: {
+            background: 'blackAlpha.400',
+            padding: '3px',
+            borderRadius: 'lg',
+          },
+          tab: {
+            height: 8,
+            borderRadius: 'md',
+            color: 'white',
+            fontWeight: 'bold',
           },
         },
       },
