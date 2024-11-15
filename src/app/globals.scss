@@ -1,0 +1,25 @@
+
+// Only for lottie bg
+.full-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    svg {
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+// Custom inputs
+.cursorPointer {
+    cursor: pointer;
+}
+
+.notSelection {
+    &::selection {
+        background-color: transparent;
+    }
+}
