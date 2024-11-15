@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  Image,
+  Image as ChakraImage,
   Box,
   Heading,
   Text,
@@ -40,6 +40,7 @@ import {
 import { Container } from './components/container'
 import { ArrowUpIcon, CheckIcon, XIcon } from './icons'
 import { Bar, Chart } from 'react-chartjs-2'
+import { useMemo } from 'react'
 
 export default function Home() {
   return (
@@ -202,7 +203,11 @@ function Advantage({
 }) {
   return (
     <HStack spacing={{ base: 5, md: 10 }} paddingX={{ lg: 5 }}>
-      <Image src={icon} width={{ base: '80px', md: '90px' }} alt={title} />
+      <ChakraImage
+        src={icon}
+        width={{ base: '80px', md: '90px' }}
+        alt={title}
+      />
       <VStack alignItems={'stretch'} spacing={1}>
         <Heading as="h4" size={'lg'}>
           {title}
@@ -214,7 +219,62 @@ function Advantage({
 }
 
 function Comparison() {
-  let delayed = false
+  const logos = useMemo(
+    () => [
+      '/logos/fasanara-icon.svg',
+      '/logos/ethena-icon.svg',
+      '/logos/superstate-icon.svg',
+      '/logos/falconx-icon.svg',
+      '/logos/clearpool-icon.svg',
+      '/logos/maple-icon.svg',
+    ],
+    [],
+  )
+  const logosCaches = useMemo(
+    () =>
+      logos.map((src) => {
+        const img = new Image()
+        img.src = src
+        return img
+      }),
+    [logos],
+  )
+
+  const drawFasLogos = useMemo(() => {
+    return {
+      id: 'drawLogos',
+      afterDatasetsDraw: (chart: any) => {
+        const xAxis = chart.scales.x
+        const ctx = chart.ctx
+
+        xAxis.ticks.forEach((_: any, index: number) => {
+          console.log(chart)
+
+          const x = xAxis.getPixelForTick(index) - 120
+          const y = chart.height - 40
+          const img = logosCaches[index]
+          ctx.drawImage(img, x, y, 240, 40)
+        })
+      },
+    }
+  }, [logosCaches])
+  const drawFalLogos = useMemo(() => {
+    return {
+      id: 'drawLogos',
+      afterDatasetsDraw: (chart: any) => {
+        const xAxis = chart.scales.x
+        const ctx = chart.ctx
+
+        xAxis.ticks.forEach((_: any, index: number) => {
+          const x = xAxis.getPixelForTick(index) - 120
+          const y = chart.height - 40
+          const img = logosCaches[index + 3]
+          ctx.drawImage(img, x, y, 240, 40)
+        })
+      },
+    }
+  }, [logosCaches])
+
   return (
     <Box
       width={'full'}
@@ -233,35 +293,33 @@ function Comparison() {
               direction={{ base: 'column', lg: 'row' }}
             >
               <VStack alignItems={'stretch'}>
-                <Heading as="h3">What’s better?</Heading>
+                <Heading as="h3">Which is better?</Heading>
                 <Text>On-chain credit solutions tailored to your needs.</Text>
               </VStack>
               <TabList>
-                <Tab _selected={{ background: 'greenGradient' }}>FAS_USDC</Tab>
-                <Tab _selected={{ background: 'blueGradient' }}>FAL_USDC</Tab>
+                <Tab _selected={{ background: 'greenGradient' }}>Fasanara</Tab>
+                <Tab _selected={{ background: 'blueGradient' }}>FalconX</Tab>
               </TabList>
             </Stack>
             <TabPanels>
               <TabPanel>
                 <Bar
+                  id="fas"
                   height={'400px'}
                   width={'full'}
-                  plugins={[ChartDataLabels]}
+                  plugins={[drawFasLogos, ChartDataLabels]}
                   options={{
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                       x: {
-                        stacked: true,
                         ticks: {
-                          font: {
-                            size: 20,
-                            weight: 500,
-                          },
+                          padding: 20,
+                          callback: () => '',
                         },
                       },
                       y: {
-                        stacked: false,
+                        beginAtZero: true,
                         ticks: {
                           display: false,
                         },
@@ -285,7 +343,7 @@ function Comparison() {
                     },
                   }}
                   data={{
-                    labels: ['FAS_USDC', 'Ethena', 'Superstate'],
+                    labels: ['Fasanara', 'Ethena', 'Superstate'],
                     datasets: [
                       {
                         label: 'APY',
@@ -310,33 +368,28 @@ function Comparison() {
               </TabPanel>
               <TabPanel>
                 <Bar
+                  id="fal"
                   height={'400px'}
                   width={'full'}
-                  plugins={[ChartDataLabels]}
+                  plugins={[drawFalLogos, ChartDataLabels]}
                   options={{
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
                       x: {
-                        stacked: true,
                         ticks: {
-                          font: {
-                            size: 20,
-                            weight: 500,
-                          },
+                          padding: 20,
+                          callback: () => '',
                         },
                       },
                       y: {
-                        stacked: true,
+                        beginAtZero: true,
                         ticks: {
                           display: false,
                         },
                       },
                     },
                     animation: {
-                      onComplete: () => {
-                        delayed = true
-                      },
                       delay: 1,
                     },
                     plugins: {
@@ -354,7 +407,7 @@ function Comparison() {
                     },
                   }}
                   data={{
-                    labels: ['FAL_USDC', 'Clearpool', 'Maple'],
+                    labels: ['FalconX', 'Clearpool', 'Maple'],
                     datasets: [
                       {
                         label: 'APY',
@@ -414,7 +467,7 @@ function Features() {
             marginRight={10}
             justifyContent={{ base: 'space-between', lg: 'center' }}
           >
-            <Image
+            <ChakraImage
               src="/logos/pareto.svg"
               alt="Pareto"
               width={114}
@@ -518,7 +571,7 @@ function PartnersCard() {
           >
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
-                <Image
+                <ChakraImage
                   src="/logos/rockaway.svg"
                   alt="Rockaway"
                   width={['130px']}
@@ -527,7 +580,7 @@ function PartnersCard() {
             </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
-                <Image
+                <ChakraImage
                   src="/logos/fasanara.svg"
                   alt="Fasanara"
                   width={['100px']}
@@ -536,12 +589,16 @@ function PartnersCard() {
             </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
-                <Image src="/logos/maven.svg" alt="Maven" width={['70px']} />
+                <ChakraImage
+                  src="/logos/maven.svg"
+                  alt="Maven"
+                  width={['70px']}
+                />
               </Center>
             </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
-                <Image
+                <ChakraImage
                   src="/logos/falconX.svg"
                   alt="FalconX"
                   width={['90px']}
@@ -550,7 +607,7 @@ function PartnersCard() {
             </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
-                <Image
+                <ChakraImage
                   src="/logos/bastion.svg"
                   alt="Bastion"
                   width={['120px']}
@@ -586,7 +643,7 @@ function ContactUsCard() {
           target="_blank"
           size="md"
           rightIcon={
-            <Image
+            <ChakraImage
               src="/icons/arrow-up-right.svg"
               alt="Up"
               width={5}
