@@ -40,7 +40,7 @@ import {
 import { Container } from './components/container'
 import { ArrowUpIcon, CheckIcon, XIcon } from './icons'
 import { Bar, Chart } from 'react-chartjs-2'
-import { useMemo } from 'react'
+import { useMemo, memo, useEffect, useRef } from 'react'
 
 export default function Home() {
   return (
@@ -230,15 +230,15 @@ function Comparison() {
     ],
     [],
   )
-  const logosCaches = useMemo(
-    () =>
-      logos.map((src) => {
-        const img = new Image()
-        img.src = src
-        return img
-      }),
-    [logos],
-  )
+  let logosCaches = useRef<HTMLImageElement[]>([])
+
+  useEffect(() => {
+    logosCaches.current = logos.map((src) => {
+      const img = new Image()
+      img.src = src
+      return img
+    })
+  })
 
   const drawFasLogos = useMemo(() => {
     return {
@@ -252,7 +252,7 @@ function Comparison() {
 
           const x = xAxis.getPixelForTick(index) - 120
           const y = chart.height - 40
-          const img = logosCaches[index]
+          const img = logosCaches.current[index]
           ctx.drawImage(img, x, y, 240, 40)
         })
       },
@@ -268,7 +268,7 @@ function Comparison() {
         xAxis.ticks.forEach((_: any, index: number) => {
           const x = xAxis.getPixelForTick(index) - 120
           const y = chart.height - 40
-          const img = logosCaches[index + 3]
+          const img = logosCaches.current[index + 3]
           ctx.drawImage(img, x, y, 240, 40)
         })
       },
