@@ -250,10 +250,10 @@ function Comparison() {
         xAxis.ticks.forEach((_: any, index: number) => {
           console.log(chart)
 
-          const x = xAxis.getPixelForTick(index) - 120
+          const x = xAxis.getPixelForTick(index) - 84
           const y = chart.height - 40
           const img = logosCaches.current[index]
-          ctx.drawImage(img, x, y, 240, 40)
+          ctx.drawImage(img, x, y, 168, 28)
         })
       },
     }
@@ -266,10 +266,10 @@ function Comparison() {
         const ctx = chart.ctx
 
         xAxis.ticks.forEach((_: any, index: number) => {
-          const x = xAxis.getPixelForTick(index) - 120
+          const x = xAxis.getPixelForTick(index) - 84
           const y = chart.height - 40
           const img = logosCaches.current[index + 3]
-          ctx.drawImage(img, x, y, 240, 40)
+          ctx.drawImage(img, x, y, 168, 28)
         })
       },
     }
@@ -338,7 +338,7 @@ function Comparison() {
                           size: 30,
                           weight: 'bold',
                         },
-                        formatter: (value) => `${value}%`,
+                        formatter: (value) => `${value}%*`,
                       },
                     },
                   }}
@@ -402,7 +402,7 @@ function Comparison() {
                           size: 30,
                           weight: 'bold',
                         },
-                        formatter: (value) => `${value}%`,
+                        formatter: (value) => `${value}%*`,
                       },
                     },
                   }}
@@ -433,6 +433,9 @@ function Comparison() {
             </TabPanels>
           </VStack>
         </Tabs>
+        <Text color={'GrayText'} mt={5} fontSize={'sm'}>
+          *Avg APY in last 30 days
+        </Text>
       </Container>
     </Box>
   )
