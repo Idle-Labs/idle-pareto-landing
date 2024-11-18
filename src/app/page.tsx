@@ -246,14 +246,15 @@ function Comparison() {
       afterDatasetsDraw: (chart: any) => {
         const xAxis = chart.scales.x
         const ctx = chart.ctx
+        const fromLeft = chart.width > 1000 ? 120 : chart.width > 900 ? 84 : 63
+        const imgW = chart.width > 1000 ? 240 : chart.width > 900 ? 168 : 126
+        const imgH = chart.width > 1000 ? 40 : chart.width > 900 ? 28 : 21
 
         xAxis.ticks.forEach((_: any, index: number) => {
-          console.log(chart)
-
-          const x = xAxis.getPixelForTick(index) - 84
+          const x = xAxis.getPixelForTick(index) - fromLeft
           const y = chart.height - 40
           const img = logosCaches.current[index]
-          ctx.drawImage(img, x, y, 168, 28)
+          ctx.drawImage(img, x, y, imgW, imgH)
         })
       },
     }
@@ -264,12 +265,15 @@ function Comparison() {
       afterDatasetsDraw: (chart: any) => {
         const xAxis = chart.scales.x
         const ctx = chart.ctx
+        const fromLeft = chart.width > 1000 ? 120 : chart.width > 900 ? 84 : 63
+        const imgW = chart.width > 1000 ? 240 : chart.width > 900 ? 168 : 126
+        const imgH = chart.width > 1000 ? 40 : chart.width > 900 ? 28 : 21
 
         xAxis.ticks.forEach((_: any, index: number) => {
-          const x = xAxis.getPixelForTick(index) - 84
+          const x = xAxis.getPixelForTick(index) - fromLeft
           const y = chart.height - 40
           const img = logosCaches.current[index + 3]
-          ctx.drawImage(img, x, y, 168, 28)
+          ctx.drawImage(img, x, y, imgW, imgH)
         })
       },
     }
