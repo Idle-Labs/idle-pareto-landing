@@ -49,7 +49,7 @@ export default function Home() {
       <Hero />
       <Vaults />
       <Advantages />
-      <Comparison />
+      {/* <Comparison /> */}
       {/* <Features /> */}
       <CallToActions />
     </Box>
@@ -92,11 +92,21 @@ function Vaults() {
       >
         <VaultCard
           code="FAS_USDC"
-          onClick={() => window.open(VAULTS_APP, '_blank')}
+          onClick={() =>
+            window.open(
+              'https://credit.idle.finance/#/credit/0x45054c6753b4bce40c5d54418dabc20b070f85be',
+              '_blank',
+            )
+          }
         />
         <VaultCard
           code="BAS_USDT"
-          onClick={() => window.open(VAULTS_APP, '_blank')}
+          onClick={() =>
+            window.open(
+              'https://credit.idle.finance/#/credit/0x97F476F664A95106931f78113489e0361Cf1c9Fa',
+              '_blank',
+            )
+          }
         />
       </Stack>
 
@@ -184,7 +194,7 @@ function Advantages() {
       width={'full'}
       layerStyle={'lightGradient'}
       paddingTop={{ base: 20, lg: '20vh' }}
-      paddingBottom={20}
+      paddingBottom={{ base: 20, lg: '25vh' }}
     >
       <Container>
         <VStack spacing={10} alignItems={'stretch'}>
