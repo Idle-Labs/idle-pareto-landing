@@ -167,7 +167,7 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
           </VStack>
           <VStack flex={1} alignItems={'stretch'} spacing={0}>
             <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-              Target Yield
+              Yield
             </Text>
             <Text fontWeight={'bold'}>{vault.yield}</Text>
           </VStack>

@@ -27,7 +27,7 @@ export const VAULTS: Vault[] = [
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
     tvl: '$6.2m',
-    yield: '13.00%',
+    yield: '26.00%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
@@ -48,9 +48,9 @@ export const VAULTS: Vault[] = [
   {
     name: 'Bastion Trading',
     description:
-      'Curated by M11 Credit, this Credit Vault funds a top-tier PB through secured lending and leveraged trade execution, delivering capital efficiency and risk-adjusted returns with monthly liquidity.',
+      'Fixed rate loan channeling funds into derivatives trading and market-making strategies',
     code: 'BAS_USDT',
-    tvl: '$15m',
+    tvl: '$5m',
     yield: '20.00%',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
