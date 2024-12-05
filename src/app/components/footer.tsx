@@ -27,7 +27,7 @@ export function Footer() {
             title="Strategies"
             items={[
               { label: 'FAS_USDC', url: '#FAS_USDC' },
-              { label: 'FAL_USDC', url: '#FAL_USDC' },
+              { label: 'BAS_USDT', url: '#BAS_USDT' },
             ]}
           />
           <Menu

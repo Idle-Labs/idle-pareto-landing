@@ -1,6 +1,6 @@
 import { Button, HStack, Image, Link } from '@chakra-ui/react'
 import { Container } from './container'
-import { VAULTS_FORM } from '../libs/vaults'
+import { VAULTS_APP } from '../libs/vaults'
 
 export function Header() {
   return (
@@ -19,7 +19,7 @@ export function Header() {
           </Link>
           <Button
             as="a"
-            href={VAULTS_FORM}
+            href={VAULTS_APP}
             target="_blank"
             size="md"
             rightIcon={
@@ -31,7 +31,7 @@ export function Header() {
               />
             }
           >
-            Join
+            Enter App
           </Button>
         </HStack>
       </HStack>

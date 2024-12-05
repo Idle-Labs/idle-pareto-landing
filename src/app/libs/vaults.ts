@@ -17,15 +17,16 @@ interface Vault {
 
 // Constants
 
+export const VAULTS_APP = 'https://credit.idle.finance'
 export const VAULTS_FORM = 'https://tally.so/r/woVrxx'
 export const VAULT_CODE_LENGTH = 6
 export const VAULTS: Vault[] = [
   {
-    name: 'Fasanara Yield',
+    name: 'Fasanara Digital',
     description:
-      'Managed by Fasanara Digital, this Credit Vault funds a delta-neutral HFT strategy, focusing on market-making, arbitrage, and funding rate optimization to deliver stable, market-neutral returns with weekly liquidity.',
+      'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
-    tvl: '$6m',
+    tvl: '$6.2m',
     yield: '13.00%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
@@ -45,12 +46,12 @@ export const VAULTS: Vault[] = [
     ],
   },
   {
-    name: 'Prime Brokerage',
+    name: 'Bastion Trading',
     description:
       'Curated by M11 Credit, this Credit Vault funds a top-tier PB through secured lending and leveraged trade execution, delivering capital efficiency and risk-adjusted returns with monthly liquidity.',
-    code: 'FAL_USDC',
+    code: 'BAS_USDT',
     tvl: '$15m',
-    yield: '15.00%',
+    yield: '20.00%',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',

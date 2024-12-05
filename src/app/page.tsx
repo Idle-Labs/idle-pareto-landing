@@ -34,6 +34,7 @@ import CustomModal from './components/modal'
 import {
   VAULTS,
   VAULTS_ADVANTAGES,
+  VAULTS_APP,
   VAULTS_FEATURES,
   VAULTS_FORM,
 } from './libs/vaults'
@@ -89,8 +90,14 @@ function Vaults() {
         spacing={50}
         direction={['column', 'column', 'column', 'row']}
       >
-        <VaultCard code="FAS_USDC" onClick={onOpen} />
-        <VaultCard code="FAL_USDC" onClick={onOpen} />
+        <VaultCard
+          code="FAS_USDC"
+          onClick={() => window.open(VAULTS_APP, '_blank')}
+        />
+        <VaultCard
+          code="BAS_USDT"
+          onClick={() => window.open(VAULTS_APP, '_blank')}
+        />
       </Stack>
 
       <CustomModal isOpen={isOpen} onClose={onClose}></CustomModal>
@@ -144,7 +151,7 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
         >
           <VStack flex={1} alignItems={'stretch'} spacing={0}>
             <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-              Total Value Locked
+              TVL
             </Text>
             <Text fontWeight={'bold'}>{vault.tvl}</Text>
           </VStack>
@@ -594,7 +601,7 @@ function PartnersCard() {
                 />
               </Center>
             </WrapItem>
-            <WrapItem>
+            {/* <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
                   src="/logos/maven.svg"
@@ -602,8 +609,8 @@ function PartnersCard() {
                   width={['70px']}
                 />
               </Center>
-            </WrapItem>
-            <WrapItem>
+            </WrapItem> */}
+            {/* <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
                   src="/logos/falconX.svg"
@@ -611,7 +618,7 @@ function PartnersCard() {
                   width={['90px']}
                 />
               </Center>
-            </WrapItem>
+            </WrapItem> */}
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
