@@ -28,6 +28,7 @@ export function Footer() {
             items={[
               { label: 'FAS_USDC', url: '#FAS_USDC' },
               { label: 'BAS_USDT', url: '#BAS_USDT' },
+              { label: 'FAL_USDT', url: '#FAL_USDT' },
             ]}
           />
           <Menu

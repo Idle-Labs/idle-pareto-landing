@@ -40,8 +40,8 @@ import {
 } from './libs/vaults'
 import { Container } from './components/container'
 import { ArrowUpIcon, CheckIcon, XIcon } from './icons'
-import { Bar, Chart } from 'react-chartjs-2'
-import { useMemo, memo, useEffect, useRef } from 'react'
+import { Bar } from 'react-chartjs-2'
+import { useMemo, useEffect, useRef } from 'react'
 
 export default function Home() {
   return (
@@ -58,8 +58,8 @@ export default function Home() {
 
 function Hero() {
   return (
-    <Container height={{ lg: '75vh' }} pt={{ lg: '25vh' }}>
-      <VStack spacing={2} alignItems={'stretch'} py={{ base: 10, lg: '0' }}>
+    <Container height={{ lg: '75vh' }} pt={{ lg: '18vh' }}>
+      <VStack spacing={2} alignItems={'stretch'} py={{ base: 15, lg: '0' }}>
         <Heading as="h1" size="2xl">
           Radically transforming <br />
           credit, on-chain
@@ -84,7 +84,7 @@ function Vaults() {
         id="vaults"
         pb={{ base: 20, lg: 0 }}
         position={{ lg: 'absolute' }}
-        top={{ lg: '-20vh' }}
+        top={{ lg: '-30vh' }}
         left={0}
         right={0}
         spacing={50}
@@ -101,6 +101,15 @@ function Vaults() {
         />
         <VaultCard
           code="BAS_USDT"
+          onClick={() =>
+            window.open(
+              'https://credit.idle.finance/#/credit/0x97F476F664A95106931f78113489e0361Cf1c9Fa',
+              '_blank',
+            )
+          }
+        />
+        <VaultCard
+          code="FAL_USDC"
           onClick={() =>
             window.open(
               'https://credit.idle.finance/#/credit/0x97F476F664A95106931f78113489e0361Cf1c9Fa',
@@ -131,56 +140,58 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
       flex={1}
     >
       <CardHeader display={'flex'} justifyContent={'space-between'}>
-        <Heading as="h2" noOfLines={1} wordBreak={'break-all'} gap={1}>
-          {vault.name}
-        </Heading>
-        <Tag
-          position={{ base: 'absolute', sm: 'relative' }}
-          size={'lg'}
-          variant="outline"
-          color={'white'}
-          flexShrink={0}
-          top={{ base: '-1px', sm: 'inherit' }}
-          right={{ base: '-1px', sm: 'inherit' }}
-          minHeight={{ base: '25px', sm: 'inherit' }}
-          borderTopLeftRadius={{ base: '0', sm: '0.375rem' }}
-          borderBottomRightRadius={{ base: '0', sm: '0.375rem' }}
-        >
-          <TagLabel>{vault.code}</TagLabel>
-        </Tag>
+        <ChakraImage
+          src={vault.logo}
+          alt="Bastion"
+          height={'60px'}
+          width={'150px'}
+        />
+        <Box display={{ base: 'none', sm: 'inline' }} p={1}>
+          <ArrowUpIcon width={8} height={8} />
+        </Box>
       </CardHeader>
       <CardBody>
+        <HStack marginBottom={4}>
+          <Tag variant={'outline'} colorScheme="black" flexShrink={0}>
+            <TagLabel>{vault.underlying}</TagLabel>
+          </Tag>
+          <Tag variant={'outline'} colorScheme="black" flexShrink={0}>
+            <TagLabel>{vault.loanType}</TagLabel>
+          </Tag>
+        </HStack>
+        <Text fontWeight={'bold'}>{vault.name}</Text>
         <Text>{vault.description}</Text>
       </CardBody>
       <CardFooter fontSize={'xl'}>
-        <HStack
-          width={'full'}
-          justifyContent={'space-between'}
-          alignItems={'center'}
-          spacing={2}
-        >
-          <VStack flex={1} alignItems={'stretch'} spacing={0}>
-            <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-              TVL
-            </Text>
-            <Text fontWeight={'bold'}>{vault.tvl}</Text>
-          </VStack>
-          <VStack flex={1} alignItems={'stretch'} spacing={0}>
-            <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-              Yield
-            </Text>
-            <Text fontWeight={'bold'}>{vault.yield}</Text>
-          </VStack>
-          <VStack flex={1} alignItems={'stretch'} spacing={0}>
-            <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-              Redemptions
-            </Text>
-            <Text fontWeight={'bold'}>{vault.redemptions}</Text>
-          </VStack>
-          <Box display={{ base: 'none', sm: 'inline' }} p={1}>
-            <ArrowUpIcon width={8} height={8} />
-          </Box>
-        </HStack>
+        <Wrap width={'full'} justify={'space-between'}>
+          <WrapItem>
+            <VStack alignItems={'start'} spacing={0}>
+              <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
+                TVL
+              </Text>
+              <Text fontWeight={'bold'}>{vault.tvl}</Text>
+            </VStack>
+          </WrapItem>
+          {vault.yield && (
+            <WrapItem>
+              <VStack alignItems={'start'} spacing={0}>
+                <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
+                  Yield
+                </Text>
+                <Text fontWeight={'bold'}>{vault.yield}</Text>
+              </VStack>
+            </WrapItem>
+          )}
+          <WrapItem>
+            <VStack alignItems={'start'} spacing={0}>
+              <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
+                Redemptions
+              </Text>
+              <Text fontWeight={'bold'}>{vault.redemptions}</Text>
+            </VStack>
+          </WrapItem>
+          {!vault.yield && <WrapItem width={'50px'}></WrapItem>}
+        </Wrap>
       </CardFooter>
     </Card>
   )
@@ -193,7 +204,7 @@ function Advantages() {
       id="advantages"
       width={'full'}
       layerStyle={'lightGradient'}
-      paddingTop={{ base: 20, lg: '20vh' }}
+      paddingTop={{ base: 20, lg: '25vh' }}
       paddingBottom={{ base: 20, lg: '25vh' }}
     >
       <Container>
@@ -611,7 +622,7 @@ function PartnersCard() {
                 />
               </Center>
             </WrapItem>
-            {/* <WrapItem>
+            <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
                   src="/logos/maven.svg"
@@ -619,8 +630,8 @@ function PartnersCard() {
                   width={['70px']}
                 />
               </Center>
-            </WrapItem> */}
-            {/* <WrapItem>
+            </WrapItem>
+            <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
                   src="/logos/falconX.svg"
@@ -628,7 +639,7 @@ function PartnersCard() {
                   width={['90px']}
                 />
               </Center>
-            </WrapItem> */}
+            </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage

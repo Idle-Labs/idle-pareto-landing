@@ -35,7 +35,7 @@ export const theme = extendTheme({
     lightGradient:
       'linear-gradient(90deg, rgba(225, 226, 226, 0.20) 0%, rgba(205, 208, 214, 0.20) 100%)',
     grayGradient:
-      'linear-gradient(90deg, rgba(225, 226, 226, 0.40) 0%, rgba(205, 208, 214, 0.40) 100%)',
+      'linear-gradient(90deg, rgba(150, 152, 155, 1) 0%, rgba(36, 41, 38, 1) 100%)',
   },
   styles: {
     global: {
@@ -145,9 +145,50 @@ export const theme = extendTheme({
             background: 'blueGradient',
           },
         },
+        headerBlueGradient: {
+          container: {
+            backgroundColor: 'white',
+            color: 'dark',
+            overflow: 'hidden',
+            padding: 0,
+          },
+          header: {
+            background: 'blueGradient',
+            color: 'white',
+          },
+        },
         greenGradient: {
           container: {
             background: 'greenGradient',
+          },
+        },
+        headerGreenGradient: {
+          container: {
+            backgroundColor: 'white',
+            color: 'dark',
+            overflow: 'hidden',
+            padding: 0,
+          },
+          header: {
+            background: 'greenGradient',
+            color: 'white',
+          },
+        },
+        grayGradient: {
+          container: {
+            background: 'grayGradient',
+          },
+        },
+        headerGrayGradient: {
+          container: {
+            backgroundColor: 'white',
+            color: 'dark',
+            overflow: 'hidden',
+            padding: 0,
+          },
+          header: {
+            background: 'grayGradient',
+            color: 'white',
           },
         },
         partners: {
@@ -217,6 +258,20 @@ export const theme = extendTheme({
             color: 'white',
             fontWeight: 'bold',
           },
+        },
+      },
+    },
+    Tag: {
+      variants: {
+        green: {
+          border: '1px solid',
+          borderColor: 'green',
+        },
+        blue: {
+          borderColor: 'blue',
+        },
+        gray: {
+          borderColor: 'gray',
         },
       },
     },

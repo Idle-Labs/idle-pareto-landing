@@ -5,14 +5,18 @@ import { compare } from './crypto'
 interface Vault {
   name: string
   description: string
+  logo: string
   code: string
   tvl: string
-  yield: string
   redemptions: string
   app: string
   cardVariant: string
   type: 'credit' | 'earn'
-  codes: string[]
+  underlying: string
+  loanType: string
+  primaryColor: string
+  yield?: string
+  codes?: string[]
 }
 
 // Constants
@@ -22,7 +26,8 @@ export const VAULTS_FORM = 'https://tally.so/r/woVrxx'
 export const VAULT_CODE_LENGTH = 6
 export const VAULTS: Vault[] = [
   {
-    name: 'Fasanara Digital',
+    logo: '/logos/fasanara.svg',
+    name: 'BTC FUNDING-BASED CREDIT',
     description:
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
@@ -31,43 +36,42 @@ export const VAULTS: Vault[] = [
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
-    cardVariant: 'greenGradient',
-    codes: [
-      'U2FsdGVkX1/fSIC5nT6irnvye3vyCOO2X5/iI7Bng94=',
-      'U2FsdGVkX1/hwaqMR06cyZju7mRNETn2peIW93/SMFE=',
-      'U2FsdGVkX19ZA87RC+0Y1YXiVniTATR2GQJPbgJtDeI=',
-      'U2FsdGVkX1+TrdE+Sn/ETXYGzuitzLD+Ii5ty+Z0JRk=',
-      'U2FsdGVkX18CAVd7PGmHsaBBBJtKbI3MVzzaMH6WdNs=',
-      'U2FsdGVkX19HbdZkTSTTAoAFMcVi+smCTeJ4Tqd9tww=',
-      'U2FsdGVkX181GFnCuP+BLERKr8AZQGg8XCe8P4ZIvjo=',
-      'U2FsdGVkX1+94L1sS/RmGEDX/gIOB1YGr2BSPkYEqCg=',
-      'U2FsdGVkX19G+XJ8Fbl1rapikR4ozCLFAT0idjaLaco=',
-      'U2FsdGVkX18UO1jJwvO2hFFlv2lLF8xkmqE9efVklSA=',
-    ],
+    cardVariant: 'headerGreenGradient',
+    underlying: 'USDC | WETH',
+    loanType: 'Variable rate',
+    primaryColor: 'greenDark',
   },
   {
-    name: 'Bastion Trading',
+    logo: '/logos/bastion.svg',
+    name: 'FIXED-RATE CREDIT',
     description:
-      'Fixed rate loan channeling funds into derivatives trading and market-making strategies',
+      'Fixed rate loan channeling funds into derivatives trading and market-making strategies.',
     code: 'BAS_USDT',
     tvl: '$5m',
     yield: '20.00%',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
-    cardVariant: 'blueGradient',
-    codes: [
-      'U2FsdGVkX19+w1qyo1rhjPoU1hBWv4CZlyEmpRm4has=',
-      'U2FsdGVkX1/n/nop3Xmtq0qFqo6lAk0Mp8q9Uol3RXU=',
-      'U2FsdGVkX19+pLf2ArIRHxe2xZN2WTYcrpxgp+NYHvs=',
-      'U2FsdGVkX1/qragXk1p5zSHKABsSsRKwiIKAaXLgk0g=',
-      'U2FsdGVkX1+FP1TwfA7xUFYNRnt12jz6m1mqGaW0niA=',
-      'U2FsdGVkX1/88KSExrM6Yf0hzZLFD5Ua8pd/GKE+Ez4=',
-      'U2FsdGVkX19x+z9A2vUBNFUt/GZoLivD34kG6AHkwuY=',
-      'U2FsdGVkX1+NrGf/BkRL5rm1NDC6LmH2k3X/kgBXQF0=',
-      'U2FsdGVkX1/fnIpU3F/cI5vcuew9K0sf36dbt4xls4c=',
-      'U2FsdGVkX1/grRP85+1CJa7akm+bP3laafV36kYU/1s=',
-    ],
+    cardVariant: 'headerBlueGradient',
+    underlying: 'USDT',
+    loanType: 'Fixed rate',
+    primaryColor: 'blueLight',
+  },
+  {
+    logo: '/logos/falconX.svg',
+    name: 'PRIME BROKERAGE CREDIT',
+    description:
+      'Fixed rate loan channeling funds into prime brokerage activities.',
+    code: 'FAL_USDC',
+    tvl: '$15m',
+    yield: 'KYC required',
+    redemptions: 'Monthly',
+    app: '//credit.idle.finance',
+    type: 'credit',
+    cardVariant: 'headerGrayGradient',
+    underlying: 'USDT',
+    loanType: 'Fixed rate',
+    primaryColor: 'black',
   },
 ]
 export const VAULTS_ADVANTAGES = [
@@ -148,7 +152,7 @@ export const VAULTS_FEATURES = [
  * @returns the url to redirect the user
  */
 export function getVaultUrl(code: string, key: string): string | undefined {
-  const vault = VAULTS.find((v) => v.codes.find((c) => compare(code, c, key)))
+  const vault = VAULTS.find((v) => v.codes?.find((c) => compare(code, c, key)))
   return vault ? parseVaultUrl(vault, code) : undefined
 }
 
