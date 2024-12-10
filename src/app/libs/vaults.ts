@@ -15,7 +15,10 @@ interface Vault {
   underlying: string
   loanType: string
   primaryColor: string
+  yieldType?: string
   yield?: string
+  curator?: string
+  curatorLink?: string
   codes?: string[]
 }
 
@@ -27,27 +30,29 @@ export const VAULT_CODE_LENGTH = 6
 export const VAULTS: Vault[] = [
   {
     logo: '/logos/fasanara.svg',
-    name: 'BTC FUNDING-BASED CREDIT',
+    name: 'Basis Trade',
     description:
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
     tvl: '$6.2m',
+    yieldType: '7-day Yield',
     yield: '26.00%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
     cardVariant: 'headerGreenGradient',
-    underlying: 'USDC | WETH',
+    underlying: 'USDC',
     loanType: 'Variable rate',
     primaryColor: 'greenDark',
   },
   {
     logo: '/logos/bastion.svg',
-    name: 'FIXED-RATE CREDIT',
+    name: 'Derivatives and Market Making',
     description:
       'Fixed rate loan channeling funds into derivatives trading and market-making strategies.',
     code: 'BAS_USDT',
     tvl: '$5m',
+    yieldType: '30-day Yield',
     yield: '20.00%',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
@@ -59,12 +64,11 @@ export const VAULTS: Vault[] = [
   },
   {
     logo: '/logos/falconX.svg',
-    name: 'PRIME BROKERAGE CREDIT',
+    name: 'Prime Brokerage',
     description:
       'Fixed rate loan channeling funds into prime brokerage activities.',
     code: 'FAL_USDC',
     tvl: '$15m',
-    yield: 'KYC required',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
@@ -72,6 +76,8 @@ export const VAULTS: Vault[] = [
     underlying: 'USDT',
     loanType: 'Fixed rate',
     primaryColor: 'black',
+    curator: 'M11 Credit',
+    curatorLink: 'https://www.m11credit.com/',
   },
 ]
 export const VAULTS_ADVANTAGES = [

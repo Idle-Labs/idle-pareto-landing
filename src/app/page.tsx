@@ -24,6 +24,7 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Link,
 } from '@chakra-ui/react'
 import Lottie from 'lottie-react'
 import 'chart.js/auto'
@@ -112,7 +113,7 @@ function Vaults() {
           code="FAL_USDC"
           onClick={() =>
             window.open(
-              'https://credit.idle.finance/#/credit/0x97F476F664A95106931f78113489e0361Cf1c9Fa',
+              'https://credit.idle.finance/#/credit/0x62426336067c37c10a681da6275c01d373abc7e0',
               '_blank',
             )
           }
@@ -176,9 +177,25 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
             <WrapItem>
               <VStack alignItems={'start'} spacing={0}>
                 <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
-                  Yield
+                  {vault.yieldType || 'Yield'}
                 </Text>
                 <Text fontWeight={'bold'}>{vault.yield}</Text>
+              </VStack>
+            </WrapItem>
+          )}
+          {vault.curator && (
+            <WrapItem>
+              <VStack alignItems={'start'} spacing={0}>
+                <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
+                  Curator/Administrator
+                </Text>
+                <Link
+                  href={vault.curatorLink}
+                  target="_blank"
+                  fontWeight={'bold'}
+                >
+                  {vault.curator}
+                </Link>
               </VStack>
             </WrapItem>
           )}
@@ -190,7 +207,6 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
               <Text fontWeight={'bold'}>{vault.redemptions}</Text>
             </VStack>
           </WrapItem>
-          {!vault.yield && <WrapItem width={'50px'}></WrapItem>}
         </Wrap>
       </CardFooter>
     </Card>
