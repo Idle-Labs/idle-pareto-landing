@@ -137,6 +137,7 @@ export const theme = extendTheme({
         container: {
           padding: 2,
           boxShadow: '10px 10px 50px 0px rgba(0, 0, 0, 0.25)',
+          transition: 'box-shadow .2s ease-in-out',
         },
       },
       variants: {
@@ -151,6 +152,9 @@ export const theme = extendTheme({
             color: 'dark',
             overflow: 'hidden',
             padding: 0,
+            _hover: {
+              boxShadow: '10px 10px 50px 0px rgba(0,63,137, 0.5)',
+            },
           },
           header: {
             background: 'blueGradient',
@@ -168,6 +172,9 @@ export const theme = extendTheme({
             color: 'dark',
             overflow: 'hidden',
             padding: 0,
+            _hover: {
+              boxShadow: '10px 10px 50px 0px rgba(23,142,101, 0.5)',
+            },
           },
           header: {
             background: 'greenGradient',
@@ -185,6 +192,9 @@ export const theme = extendTheme({
             color: 'dark',
             overflow: 'hidden',
             padding: 0,
+            _hover: {
+              boxShadow: '10px 10px 50px 0px rgba(0,0,0, 0.5)',
+            },
           },
           header: {
             background: 'grayGradient',

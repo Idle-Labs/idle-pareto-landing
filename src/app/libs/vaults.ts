@@ -66,7 +66,7 @@ export const VAULTS: Vault[] = [
     logo: '/logos/falconX.svg',
     name: 'Prime Brokerage',
     description:
-      'Fixed rate loan channeling funds into prime brokerage activities.',
+      'Lending funds to an SPV managed by a top-tier Prime Broker, providing financing to end-counterparties while being secured by structural protections.',
     code: 'FAL_USDC',
     tvl: '$15m',
     redemptions: 'Monthly',
