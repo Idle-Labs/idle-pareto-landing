@@ -159,6 +159,11 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
           <Tag variant={'outline'} colorScheme="black" flexShrink={0}>
             <TagLabel>{vault.loanType}</TagLabel>
           </Tag>
+          {vault.curatedBy && (
+            <Tag variant={'outline'} colorScheme="black" flexShrink={0}>
+              <TagLabel>Curated by</TagLabel>
+            </Tag>
+          )}
         </HStack>
         <Text fontWeight={'bold'}>{vault.name}</Text>
         <Text>{vault.description}</Text>
