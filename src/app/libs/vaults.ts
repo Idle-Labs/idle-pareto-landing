@@ -39,7 +39,7 @@ export const VAULTS: Vault[] = [
     code: 'FAS_USDC',
     tvl: '$16m',
     yieldType: '7-day Yield',
-    yield: '26.00%',
+    yield: '13.87%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
