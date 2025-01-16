@@ -113,7 +113,7 @@ function Vaults() {
           code="FAL_USDC"
           onClick={() =>
             window.open(
-              'https://credit.idle.finance/#/credit/0x62426336067c37c10a681da6275c01d373abc7e0',
+              'https://credit.idle.finance/#/credit/0x24e16f9fad32891f8ba69ce8fedd273a2649331a',
               '_blank',
             )
           }
