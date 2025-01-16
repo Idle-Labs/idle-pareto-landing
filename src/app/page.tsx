@@ -40,7 +40,7 @@ import {
   VAULTS_FORM,
 } from './libs/vaults'
 import { Container } from './components/container'
-import { ArrowUpIcon, CheckIcon, XIcon } from './icons'
+import { ArrowUpIcon, CheckIcon, HiddenIcon, XIcon } from './icons'
 import { Bar } from 'react-chartjs-2'
 import { useMemo, useEffect, useRef } from 'react'
 
@@ -144,8 +144,8 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
         <ChakraImage
           src={vault.logo}
           alt="Bastion"
-          height={'60px'}
-          width={'150px'}
+          height={vault.logoHeight || '60px'}
+          width={vault.logoWidth || '150px'}
         />
         <Box display={{ base: 'none', sm: 'inline' }} p={1}>
           <ArrowUpIcon width={8} height={8} />
@@ -179,7 +179,11 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
                 <Text fontSize={'sm'} noOfLines={1} wordBreak={'break-all'}>
                   {vault.yieldType || 'Yield'}
                 </Text>
-                <Text fontWeight={'bold'}>{vault.yield}</Text>
+                {vault.yield === 'hidden' ? (
+                  <HiddenIcon height={'35px'} width={'25px'} />
+                ) : (
+                  <Text fontWeight={'bold'}>{vault.yield}</Text>
+                )}
               </VStack>
             </WrapItem>
           )}

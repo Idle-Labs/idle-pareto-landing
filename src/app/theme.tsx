@@ -36,6 +36,11 @@ export const theme = extendTheme({
       'linear-gradient(90deg, rgba(225, 226, 226, 0.20) 0%, rgba(205, 208, 214, 0.20) 100%)',
     grayGradient:
       'linear-gradient(90deg, rgba(150, 152, 155, 1) 0%, rgba(36, 41, 38, 1) 100%)',
+    waterGreenGradient:
+      'linear-gradient(90deg, rgba(21,198,188, 1) 0%, rgba(0,102,96,1) 100%)',
+    pattern1: 'url(/bg/pattern-1.png)',
+    pattern2: 'url(/bg/pattern-2.png)',
+    pattern3: 'url(/bg/pattern-3.png)',
   },
   styles: {
     global: {
@@ -136,7 +141,7 @@ export const theme = extendTheme({
       baseStyle: {
         container: {
           padding: 2,
-          boxShadow: '10px 10px 50px 0px rgba(0, 0, 0, 0.25)',
+          boxShadow: '0px 0px 40px 0px rgba(0, 0, 0, 0.25)',
           transition: 'box-shadow .2s ease-in-out',
         },
       },
@@ -153,11 +158,26 @@ export const theme = extendTheme({
             overflow: 'hidden',
             padding: 0,
             _hover: {
-              boxShadow: '10px 10px 50px 0px rgba(0,63,137, 0.5)',
+              boxShadow: '0px 0px 50px 0px rgba(25,232,220, 0.4)',
             },
           },
           header: {
-            background: 'blueGradient',
+            background: 'pattern2',
+            color: 'white',
+          },
+        },
+        headerWaterGreenGradient: {
+          container: {
+            backgroundColor: 'white',
+            color: 'dark',
+            overflow: 'hidden',
+            padding: 0,
+            _hover: {
+              boxShadow: '0px 0px 50px 0px rgba(0,63,137, 0.4)',
+            },
+          },
+          header: {
+            background: 'pattern3',
             color: 'white',
           },
         },
@@ -173,11 +193,11 @@ export const theme = extendTheme({
             overflow: 'hidden',
             padding: 0,
             _hover: {
-              boxShadow: '10px 10px 50px 0px rgba(23,142,101, 0.5)',
+              boxShadow: '0px 0px 50px 0px rgba(20,20,20, 0.5)',
             },
           },
           header: {
-            background: 'greenGradient',
+            background: 'pattern1',
             color: 'white',
           },
         },

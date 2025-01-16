@@ -6,6 +6,8 @@ interface Vault {
   name: string
   description: string
   logo: string
+  logoWidth?: string
+  logoHeight?: string
   code: string
   tvl: string
   redemptions: string
@@ -34,7 +36,7 @@ export const VAULTS: Vault[] = [
     description:
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
-    tvl: '$6.2m',
+    tvl: '$16m',
     yieldType: '7-day Yield',
     yield: '26.00%',
     redemptions: 'Weekly',
@@ -63,21 +65,22 @@ export const VAULTS: Vault[] = [
     primaryColor: 'blueLight',
   },
   {
-    logo: '/logos/falconX.svg',
+    logo: '/logos/m11-horizontal.svg',
+    logoWidth: '200px',
     name: 'Prime Brokerage',
     description:
       'Lending funds to an SPV managed by a top-tier Prime Broker, providing financing to end-counterparties while being secured by structural protections.',
     code: 'FAL_USDC',
-    tvl: '$15m',
+    tvl: '$10m',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
-    cardVariant: 'headerGrayGradient',
-    underlying: 'USDT',
+    cardVariant: 'headerWaterGreenGradient',
+    underlying: 'USDC',
     loanType: 'Fixed rate',
     primaryColor: 'black',
-    curator: 'M11 Credit',
-    curatorLink: 'https://www.m11credit.com/',
+    yieldType: '30-day Yield',
+    yield: 'hidden',
   },
 ]
 export const VAULTS_ADVANTAGES = [
