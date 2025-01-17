@@ -22,7 +22,7 @@ interface Vault {
   curator?: string
   curatorLink?: string
   codes?: string[]
-  curatedBy?: boolean
+  curatedBy?: string
 }
 
 // Constants
@@ -82,7 +82,7 @@ export const VAULTS: Vault[] = [
     primaryColor: 'black',
     yieldType: '30-day Yield',
     yield: 'hidden',
-    curatedBy: true,
+    curatedBy: 'M11',
   },
 ]
 export const VAULTS_ADVANTAGES = [

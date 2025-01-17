@@ -161,7 +161,7 @@ function VaultCard({ code, onClick }: { code: string; onClick: () => void }) {
           </Tag>
           {vault.curatedBy && (
             <Tag variant={'outline'} colorScheme="black" flexShrink={0}>
-              <TagLabel>Curated by</TagLabel>
+              <TagLabel>Curated by {vault.curatedBy}</TagLabel>
             </Tag>
           )}
         </HStack>
