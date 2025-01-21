@@ -6,7 +6,7 @@ import { Providers } from './providers'
 import { Header } from './components/header'
 import { Footer } from './components/footer'
 
-const baseUrl = new URL('https://pareto.idle.finance/')
+const baseUrl = new URL('https://pareto.credit/')
 export const metadata: Metadata = {
   metadataBase: baseUrl,
   title: 'Pareto',

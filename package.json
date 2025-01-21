@@ -7,7 +7,7 @@
     "build": "next build && touch ./dist/.nojekyll",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && echo 'pareto.idle.finance\nwww.pareto.idle.finance' > dist/CNAME;gh-pages -b gh-pages -d dist -t true --remote origin"
+    "deploy": "npm run build && echo 'pareto.credit\nwww.pareto.credit' > dist/CNAME;gh-pages -b gh-pages -d dist -t true --remote origin"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
