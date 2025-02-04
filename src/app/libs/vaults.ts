@@ -39,7 +39,7 @@ export const VAULTS: Vault[] = [
     code: 'FAS_USDC',
     tvl: '$16m',
     yieldType: '7-day Yield',
-    yield: '13.87%',
+    yield: '12.21%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
@@ -72,7 +72,7 @@ export const VAULTS: Vault[] = [
     description:
       'Lending funds to an SPV managed by a top-tier Prime Broker, providing financing to end-counterparties while being secured by structural protections.',
     code: 'FAL_USDC',
-    tvl: '$10m',
+    tvl: '$13m',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
