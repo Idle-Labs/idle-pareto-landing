@@ -14,12 +14,17 @@ export function Footer() {
         >
           <VStack alignItems={'start'} flex={1}>
             <Link href="#vaults">
-              <Image src="/logos/pareto.svg" alt="Pareto" />
+              <Image
+                src="/logos/pareto.svg"
+                alt="Pareto"
+                width={'125px'}
+                height={'48px'}
+              />
             </Link>
             <HStack spacing={2}>
               <Text>Brought to you by</Text>
               <Link href="https://idle.finance/" target="_blank">
-                <Image src="/logos/idle.svg" alt="Pareto" width={'80px'} />
+                <Image src="/logos/idle.svg" alt="Pareto" width={'60px'} />
               </Link>
             </HStack>
           </VStack>
