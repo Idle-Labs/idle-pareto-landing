@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       {
         width: '1200',
         height: '630',
-        url: '/logos/pareto-full-og.png',
+        url: '/logos/pareto-og.png',
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       {
         width: '1200',
         height: '630',
-        url: '/logos/pareto-full-og.png',
+        url: '/logos/pareto-og.png',
       },
     ],
   },
