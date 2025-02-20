@@ -6,14 +6,12 @@ export function Header() {
   return (
     <Container position={{ lg: 'absolute' }} top={0} left={0} right={0}>
       <HStack width={'full'} paddingY={8} justifyContent={'space-between'}>
-        <Link href="https://idle.finance/" target="_blank">
-          <Image
-            src="/logos/pareto.svg"
-            alt="Pareto"
-            width={'125px'}
-            height={'48px'}
-          />
-        </Link>
+        <Image
+          src="/logos/pareto.svg"
+          alt="Pareto"
+          width={'125px'}
+          height={'48px'}
+        />
 
         <HStack spacing={8}>
           <Link display={{ base: 'none', md: 'block' }} href="#advantages">
