@@ -12,45 +12,44 @@ export function Footer() {
           alignItems={'initial'}
           spacing={10}
         >
-          <VStack alignItems={'start'} flex={1}>
-            <Link href="#vaults">
-              <Image
-                src="/logos/pareto.svg"
-                alt="Pareto"
-                width={'125px'}
-                height={'48px'}
-              />
-            </Link>
-            <HStack spacing={2}>
-              <Text>Brought to you by</Text>
-              <Link href="https://idle.finance/" target="_blank">
-                <Image src="/logos/idle.svg" alt="Pareto" width={'60px'} />
-              </Link>
-            </HStack>
-          </VStack>
-          <Menu
-            title="Strategies"
-            items={[
-              { label: 'FAS_USDC', url: '#FAS_USDC' },
-              { label: 'BAS_USDT', url: '#BAS_USDT' },
-              { label: 'FAL_USDT', url: '#FAL_USDT' },
-            ]}
-          />
-          <Menu
-            title="Resources"
-            items={[
-              {
-                label: 'Documentation',
-                url: 'https://docs.idle.finance/',
-                target: '_blank',
-              },
-              {
-                label: 'Contact Us',
-                url: VAULTS_FORM,
-                target: '_blank',
-              },
-            ]}
-          />
+          <Link href="#vaults">
+            <Image
+              src="/logos/pareto.svg"
+              alt="Pareto"
+              width={'125px'}
+              height={'48px'}
+            />
+          </Link>
+          <HStack
+            alignItems={'start'}
+            justifyContent={{ base: 'start', md: 'end' }}
+            flex={1}
+            spacing={10}
+          >
+            <Menu
+              title="Strategies"
+              items={[
+                { label: 'FAS_USDC', url: '#FAS_USDC' },
+                { label: 'BAS_USDT', url: '#BAS_USDT' },
+                { label: 'FAL_USDT', url: '#FAL_USDT' },
+              ]}
+            />
+            <Menu
+              title="Resources"
+              items={[
+                {
+                  label: 'Documentation',
+                  url: 'https://docs.idle.finance/',
+                  target: '_blank',
+                },
+                {
+                  label: 'Contact Us',
+                  url: VAULTS_FORM,
+                  target: '_blank',
+                },
+              ]}
+            />
+          </HStack>
         </Stack>
         <Text fontSize={'sm'} color={'greyLight'}>
           All content available on this Website is general in nature, not
