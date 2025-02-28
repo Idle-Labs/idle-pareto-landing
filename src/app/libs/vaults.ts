@@ -37,9 +37,9 @@ export const VAULTS: Vault[] = [
     description:
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
-    tvl: '$16m',
+    tvl: '$11m',
     yieldType: '7-day Yield',
-    yield: '12.21%',
+    yield: '8.97%',
     redemptions: 'Weekly',
     app: '//credit.idle.finance',
     type: 'credit',
@@ -54,9 +54,9 @@ export const VAULTS: Vault[] = [
     description:
       'Fixed rate loan channeling funds into derivatives trading and market-making strategies.',
     code: 'BAS_USDT',
-    tvl: '$5m',
+    tvl: '$30m',
     yieldType: '30-day Yield',
-    yield: '20.00%',
+    yield: '17.50%',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
@@ -72,7 +72,7 @@ export const VAULTS: Vault[] = [
     description:
       'Lending funds to an SPV managed by a top-tier Prime Broker, providing financing to end-counterparties while being secured by structural protections.',
     code: 'FAL_USDC',
-    tvl: '$13m',
+    tvl: '$7m',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
