@@ -54,7 +54,7 @@ export const VAULTS: Vault[] = [
     description:
       'Fixed rate loan channeling funds into derivatives trading and market-making strategies.',
     code: 'BAS_USDT',
-    tvl: '$30m',
+    tvl: '$7m',
     yieldType: '30-day Yield',
     yield: '17.50%',
     redemptions: 'Monthly',
@@ -72,7 +72,7 @@ export const VAULTS: Vault[] = [
     description:
       'Lending funds to an SPV managed by a top-tier Prime Broker, providing financing to end-counterparties while being secured by structural protections.',
     code: 'FAL_USDC',
-    tvl: '$7m',
+    tvl: '$30m',
     redemptions: 'Monthly',
     app: '//credit.idle.finance',
     type: 'credit',
