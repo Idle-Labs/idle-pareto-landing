@@ -95,7 +95,7 @@ function Vaults() {
           code="FAS_USDC"
           onClick={() =>
             window.open(
-              'https://credit.idle.finance/#/credit/0x45054c6753b4bce40c5d54418dabc20b070f85be',
+              'https://app.pareto.credit/vault#0x45054c6753b4Bce40C5d54418DabC20b070F85bE',
               '_blank',
             )
           }
@@ -104,7 +104,7 @@ function Vaults() {
           code="BAS_USDT"
           onClick={() =>
             window.open(
-              'https://credit.idle.finance/#/credit/0x97F476F664A95106931f78113489e0361Cf1c9Fa',
+              'https://app.pareto.credit/vault#0x24e16F9Fad32891f8bA69cE8fEdd273A2649331A',
               '_blank',
             )
           }
@@ -113,7 +113,7 @@ function Vaults() {
           code="FAL_USDC"
           onClick={() =>
             window.open(
-              'https://credit.idle.finance/#/credit/0x24e16f9fad32891f8ba69ce8fedd273a2649331a',
+              'https://app.pareto.credit/vault#0xaE65d6C295E4a28519182a632FB25b7C1966AED7',
               '_blank',
             )
           }
