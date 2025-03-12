@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'
 import './globals.scss'
 
 import { Providers } from './providers'
+import GlobalCss from './global'
 import { Header } from './components/header'
 import { Footer } from './components/footer'
 
@@ -49,6 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GlobalCss />
       <body>
         <Providers>
           <Header />

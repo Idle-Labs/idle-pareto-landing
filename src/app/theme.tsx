@@ -1,5 +1,5 @@
-import { background, extendTheme } from '@chakra-ui/react'
-import { dmSans, poppins } from './fonts'
+import { extendTheme } from '@chakra-ui/react'
+import { fonts } from './fonts'
 import bgPartners from '../../public/bg/partners.png'
 
 export const theme = extendTheme({
@@ -7,10 +7,7 @@ export const theme = extendTheme({
     initialColorMode: 'dark',
     useSystemColorMode: false,
   },
-  fonts: {
-    heading: poppins.style.fontFamily,
-    body: dmSans.style.fontFamily,
-  },
+  fonts,
   colors: {
     white: '#FFFFFF',
     dark: '#1B1E27',
@@ -81,6 +78,9 @@ export const theme = extendTheme({
       },
     },
     Button: {
+      baseStyle: {
+        borderRadius: 'full',
+      },
       variants: {
         neutral: {
           bg: 'black',
@@ -140,6 +140,7 @@ export const theme = extendTheme({
     Card: {
       baseStyle: {
         container: {
+          borderRadius: '3xl',
           padding: 2,
           boxShadow: '0px 0px 40px 0px rgba(0, 0, 0, 0.25)',
           transition: 'box-shadow .2s ease-in-out',
@@ -292,6 +293,11 @@ export const theme = extendTheme({
       },
     },
     Tag: {
+      baseStyle: {
+        container: {
+          borderRadius: 'full',
+        },
+      },
       variants: {
         green: {
           border: '1px solid',
