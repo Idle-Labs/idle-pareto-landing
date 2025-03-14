@@ -104,7 +104,7 @@ function Vaults() {
           code="BAS_USDT"
           onClick={() =>
             window.open(
-              'https://app.pareto.credit/vault#0x24e16F9Fad32891f8bA69cE8fEdd273A2649331A',
+              'https://app.pareto.credit/vault#0xaE65d6C295E4a28519182a632FB25b7C1966AED7',
               '_blank',
             )
           }
@@ -113,7 +113,7 @@ function Vaults() {
           code="FAL_USDC"
           onClick={() =>
             window.open(
-              'https://app.pareto.credit/vault#0xaE65d6C295E4a28519182a632FB25b7C1966AED7',
+              'https://app.pareto.credit/vault#0x24e16F9Fad32891f8bA69cE8fEdd273A2649331A',
               '_blank',
             )
           }
