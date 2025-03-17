@@ -656,15 +656,15 @@ function PartnersCard() {
                 />
               </Center>
             </WrapItem>
-            {/* <WrapItem>
+            <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage
                   src="/logos/falconX.svg"
                   alt="FalconX"
-                  width={['90px']}
+                  width={['140px']}
                 />
               </Center>
-            </WrapItem> */}
+            </WrapItem>
             <WrapItem>
               <Center paddingX={[2, 2, 2, 2, 5]}>
                 <ChakraImage

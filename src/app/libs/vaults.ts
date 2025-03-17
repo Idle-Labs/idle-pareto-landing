@@ -66,7 +66,7 @@ export const VAULTS: Vault[] = [
     primaryColor: 'blueLight',
   },
   {
-    logo: '/logos/m11-horizontal.svg',
+    logo: '/logos/falconX.svg',
     logoWidth: '200px',
     name: 'Prime Brokerage',
     description:
