@@ -37,9 +37,9 @@ export const VAULTS: Vault[] = [
     description:
       'Variable-rate loan channeling funds into delta-neutral yield strategies overperforming the BTC funding rate.',
     code: 'FAS_USDC',
-    tvl: '$11m',
+    tvl: '$10m',
     yieldType: '7-day Yield',
-    yield: '6.45%',
+    yield: '6.31%',
     redemptions: 'Weekly',
     app: '//app.pareto.credit',
     type: 'credit',
