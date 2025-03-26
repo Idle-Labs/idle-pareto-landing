@@ -39,7 +39,7 @@ export const VAULTS: Vault[] = [
     code: 'FAS_USDC',
     tvl: '$10m',
     yieldType: '7-day Yield',
-    yield: '5.52%',
+    yield: '5.31%',
     redemptions: 'Weekly',
     app: '//app.pareto.credit',
     type: 'credit',
