@@ -39,7 +39,7 @@ export function Footer() {
               items={[
                 {
                   label: 'Documentation',
-                  url: 'https://docs.idle.finance/',
+                  url: 'https://docs.pareto.credit/',
                   target: '_blank',
                 },
                 {
