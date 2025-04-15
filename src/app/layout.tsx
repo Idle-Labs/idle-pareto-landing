@@ -10,15 +10,15 @@ import { Footer } from './components/footer'
 const baseUrl = new URL('https://pareto.credit/')
 export const metadata: Metadata = {
   metadataBase: baseUrl,
-  title: 'Pareto',
+  title: 'Pareto | Radically transforming credit, on-chain',
   description:
-    'A marketplace of scaled on-chain credit facilities that displace legacy lending infrastructure and loan origination processes at each stage of the loan lifecycle.',
+    'A private credit marketplace for institutional borrowers and lenders',
   openGraph: {
     type: 'website',
     url: baseUrl,
-    title: 'Pareto',
+    title: 'Pareto | Radically transforming credit, on-chain',
     description:
-      'A marketplace of scaled on-chain credit facilities that displace legacy lending infrastructure and loan origination processes at each stage of the loan lifecycle.',
+      'A private credit marketplace for institutional borrowers and lenders',
     siteName: 'Pareto',
     images: [
       {
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Pareto',
+    title: 'Pareto | Radically transforming credit, on-chain',
     description:
-      'A marketplace of scaled on-chain credit facilities that displace legacy lending infrastructure and loan origination processes at each stage of the loan lifecycle.',
+      'A private credit marketplace for institutional borrowers and lenders',
     images: [
       {
         width: '1200',
