@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   metadataBase: baseUrl,
   title: 'Pareto | Radically transforming credit, on-chain',
   description:
-    'A private credit marketplace for institutional borrowers and lenders',
+    'A private credit marketplace that connects institutional lenders and borrowers, providing scalable, yield-generating opportunities.',
   openGraph: {
     type: 'website',
     url: baseUrl,
     title: 'Pareto | Radically transforming credit, on-chain',
     description:
-      'A private credit marketplace for institutional borrowers and lenders',
+      'A private credit marketplace that connects institutional lenders and borrowers, providing scalable, yield-generating opportunities.',
     siteName: 'Pareto',
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Pareto | Radically transforming credit, on-chain',
     description:
-      'A private credit marketplace for institutional borrowers and lenders',
+      'A private credit marketplace that connects institutional lenders and borrowers, providing scalable, yield-generating opportunities.',
     images: [
       {
         width: '1200',
